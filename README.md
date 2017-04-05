@@ -59,6 +59,10 @@ Note : GitHub has recently changed the versioning for large files. To be able to
 After cloning the repository execute the following command to make sure all files are pulled.
 
 	git lfs pull
+
+Alternatively you can specify the repo with:
+
+    git lfs pull https://github.com/Acuant/AcuantiOSMobileSDK.git
 	
 ## Common Error
 
