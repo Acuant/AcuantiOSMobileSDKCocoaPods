@@ -62,7 +62,7 @@ This document contains a detailed description of all functions that developers n
 5.  Open the Info.plist file (which contains the version number).
 
 
-##Operating system and device requirements
+## Operating system and device requirements
 The Acuant iOS Mobile SDK API supports the following operating system
 and devices:
 
@@ -478,7 +478,7 @@ Use the following optional method to use start or stop continuous scanning witho
 
 This section describes the methods used by the **AcuantMobileSDKControllerCapturingDelegate** protocol.
 
-### didCaptureCropImage method###
+### didCaptureCropImage method
 
 Use the **didCaptureCropImage** method to configure image cropping.
  
@@ -998,7 +998,7 @@ Integer value that indicates the DPI value to reformat the image. **Values:** Ra
 #### cropImage
 Boolean value that indicates whether to crop the RAW image. **Values:** True | False 
 
-	**Note:** MobileSDK crops the image; therefore, leave this flag set to **False**.
+**Note:** MobileSDK crops the image; therefore, leave this flag set to **False**.
 
 
 #### logtransaction
@@ -1056,7 +1056,7 @@ Integer value that indicates the DPI value to reformat the image. **Values:** Ra
 #### cropImage
 Boolean value that indicates whether to crop the RAW image. **Values:** True | False 
 
-	**Note:** MobileSDK crops the image; therefore, leave this flag set to **False**.
+**Note:** MobileSDK crops the image; therefore, leave this flag set to **False**.
 
 ### Card processing for Passports
 
@@ -1451,7 +1451,7 @@ The **AuthenticationResult** and **AuthenticationResultSummary** fields contain 
 
 Use the following code to enable location tracking if you need to detect the location at which the ID/Passport is captured:
 
-// Initializing AcuantMobileSDKController
+	// Initializing AcuantMobileSDKController
 		self.instance = [AcuantMobileSDKController 
 		initAcuantMobileSDKWithLicenseKey:licenseKey andDelegate:self];
 		.
