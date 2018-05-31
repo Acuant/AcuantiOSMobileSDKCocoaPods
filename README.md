@@ -69,10 +69,8 @@ and devices:
 
 **Note**  The card image must be taken in acceptable light conditions to avoid glare and overhead lights. The card should preferably be fitted within the brackets on the camera screen to allow the picture to be taken at maximum resolution.
 
-<a name="Installing the SDK"></a>
-## Installing the SDK with CocoaPods
+# Installation
 
-This section describes how to install the Acuant iOS Mobile SDK using CocoaPods.
 
 **Note** GitHub has recently changed the versioning for large files. To be able to download large files while cloning from GitHub or CocoaPods repositories please make sure git-lfs is installed in the build machine.
 More information for git-lfs is available at <https://git-lfs.github.com/>. Clone and update our SDK repository
@@ -81,8 +79,26 @@ More information for git-lfs is available at <https://git-lfs.github.com/>. Clo
 After cloning the repository, run the following command to make sure all files are pulled:
 
 	git lfs pull
-	
+
+## CocoaPods
+
+<details>
+
+1.  Create a podfile that includes the following lines:
+
+	    platform :ios, '8.0'
+		pod 'PPpdf417', '~> 5.1.0'
+		pod 'AcuantMobileSDK', '~> 5.7'
+
+2.  Run `pod install` to add the AcuantMobileSDK.
+
+</details>
+
+
+
 ## Common Build Error
+
+<details>	
 
 If git-lfs is not set up , then GitHub doesn't download large files. Therefore, if the following build error appears while building the iOS app, that means some of the files are missing. 
 
@@ -108,40 +124,12 @@ If the following error(s) occurs when publishing/exporting the app, then in the 
 	lipo -remove i386 <Path to the file> -o <Output file path>
 	lipo -remove x86_64 <Path to the file> -o <Output file path>
 
+</details>
 
-#### Create a Podfile:
+## Manual Installation
 
-1.  Create a podfile that includes the following lines:
+<details>	
 
-	    platform :ios, '8.0'
-		pod 'PPpdf417', '~> 5.1.0'
-		pod 'AcuantMobileSDK', '~> 5.7'
-
-2.  Run `pod install` to add the AcuantMobileSDK.
-
-#### Add imports in the Objective-C bridging file *(optional)*:
-
-If this is a Swift project, then add the following imports to the Objective-C bridging file.
-(*Apple Reference:* <https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html>)
-
-		@protocol AcuantFacialCaptureDelegate;
-		@class AcuantMobileSDKController;
- 
- 		#import <Foundation/Foundation.h>
-		#import <UIKit/UIKit.h>
-		#import "AcuantMobileSDK/AcuantCardProcessRequestOptions.h"
-		#import "AcuantMobileSDK/AcuantCardRegion.h"
-		#import "AcuantMobileSDK/AcuantCardResult.h"
-		#import "AcuantMobileSDK/AcuantCardType.h"
-		#import "AcuantMobileSDK/AcuantDeviceLocationTestResult.h"
-		#import "AcuantMobileSDK/AcuantDriversLicenseCard.h"
-		#import "AcuantMobileSDK/AcuantError.h"
-		#import "AcuantMobileSDK/AcuantFacialCaptureDelegate.h"
-		#import "AcuantMobileSDK/AcuantFacialData.h"
-		#import "AcuantMobileSDK/AcuantFacialRecognitionViewController.h"
-		#import "AcuantMobileSDK/AcuantMedicalInsuranceCard.h"
-		#import "AcuantMobileSDK/AcuantMobileSDKController.h"
-		#import "AcuantMobileSDK/AcuantPassaportCard.h"
 
 
 #### Add the AcuantMobileSDK.embeddedframework *(Optional)*:
@@ -209,6 +197,38 @@ If you do not use CocoaPods, then you need to add the AcuantMobileSDK.embeddedfr
 
 	    Add on “GCC_PREPROCESSOR_DEFINITIONS” = CVLIB_IMG_NOCODEC
 
+</details>
+
+## *(optional)* Add imports in the Objective-C bridging file :
+
+
+<details>
+	
+If this is a Swift project, then add the following imports to the Objective-C bridging file.
+(*Apple Reference:* <https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html>)
+
+```objc
+@protocol AcuantFacialCaptureDelegate;
+@class AcuantMobileSDKController;
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+#import "AcuantMobileSDK/AcuantCardProcessRequestOptions.h"
+#import "AcuantMobileSDK/AcuantCardRegion.h"
+#import "AcuantMobileSDK/AcuantCardResult.h"
+#import "AcuantMobileSDK/AcuantCardType.h"
+#import "AcuantMobileSDK/AcuantDeviceLocationTestResult.h"
+#import "AcuantMobileSDK/AcuantDriversLicenseCard.h"
+#import "AcuantMobileSDK/AcuantError.h"
+#import "AcuantMobileSDK/AcuantFacialCaptureDelegate.h"
+#import "AcuantMobileSDK/AcuantFacialData.h"
+#import "AcuantMobileSDK/AcuantFacialRecognitionViewController.h"
+#import "AcuantMobileSDK/AcuantMedicalInsuranceCard.h"
+#import "AcuantMobileSDK/AcuantMobileSDKController.h"
+#import "AcuantMobileSDK/AcuantPassaportCard.h"
+```
+
+</details>
 
 ## Integration with Swift
 
