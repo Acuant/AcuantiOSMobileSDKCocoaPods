@@ -151,13 +151,13 @@ If this is a Swift project, then add the following imports to the Objective-C br
 		#import "AcuantMobileSDK/AcuantPassaportCard.h"
 
 
-####Add the AcuantMobileSDK.embeddedframework *(Optional)*:
+#### Add the AcuantMobileSDK.embeddedframework *(Optional)*:
 If you do not use CocoaPods, then you need to add the AcuantMobileSDK.embeddedframework into each of your projects. 
 
 1. Download the Acuant iOS Mobile SDK and embeddedframework from GitHub at <https://github.com/Acuant/AcuantiOSMobileSDK>.
 2. Drag the AcuantMobileSDK.embeddedframework folder into your project's file structure.
 
-####Add native frameworks and libraries:
+#### Add native frameworks and libraries:
 
 1.  Go to the target. 
 2.  Click **Build Phases**.
@@ -165,7 +165,7 @@ If you do not use CocoaPods, then you need to add the AcuantMobileSDK.embeddedfr
 4.  Click the Xcode tool icon **(+)** to add the following frameworks and libraries.
 
 
-#####Frameworks:
+##### Frameworks:
 
 - AssetsLibrary.framework
 - SystemConfiguration.framework 
@@ -181,7 +181,7 @@ If you do not use CocoaPods, then you need to add the AcuantMobileSDK.embeddedfr
 - CoreLocation.framework
 - ImageIO.framework
 
-#####Libraries:
+##### Libraries:
 - libc++.tdb
 - libiconv.tdb
 - libz.tdb
@@ -193,7 +193,7 @@ If you do not use CocoaPods, then you need to add the AcuantMobileSDK.embeddedfr
 - libz.dylib
 
 
-####Add the Microblink bundle and framework to the project:
+#### Add the Microblink bundle and framework to the project:
 
 1. Download the Microblink.bundle and Microblink.framework files from **AcuantMobileSDK.embeddedframework/Resources**.
 2. Add the files to the project: 
@@ -202,7 +202,7 @@ If you do not use CocoaPods, then you need to add the AcuantMobileSDK.embeddedfr
 	
 	![](document_images/Setting-2.png)
 
-####Change targets in build settings:
+#### Change targets in build settings:
 
 1.  Go to the target.
 2.  Click **Build Settings**.
@@ -352,7 +352,7 @@ To show the camera interface, select *manual capture interface* or *barcode capt
 Use one of the following methods to capture a card image.
 
 
-####Initialize the SDK and show the camera interface:
+#### Initialize the SDK and show the camera interface:
 
 Use the following method to initialize the SDK and show the camera interface in the same step:
 
@@ -451,17 +451,17 @@ Use the **setCanShowMessage** optional method to enable the initial message disp
 	[_instance setCanShowMessage:YES];
 
 
-####Enable pausing the barcode camera scan:
+#### Enable pausing the barcode camera scan:
 Use the **pauseScanningBarcodeCamera** optional method to pause the barcode camera scan.
 
 	[_instance pauseScanningBarcodeCamera];
 
-####Enable resuming the barcode camera scan:
+#### Enable resuming the barcode camera scan:
 Use the **resumeScanningBarcodeCamera** optional method to resume the barcode camera scan.
 
 	[_instance resumeScanningBarcodeCamera];
 	
-###Enable the continuous scanning of barcodes without user preview:
+### Enable the continuous scanning of barcodes without user preview:
 Use the following optional method to use start or stop continuous scanning without user preview.
 
 	// To Start Barcode scanning :
@@ -478,7 +478,7 @@ Use the following optional method to use start or stop continuous scanning witho
 
 This section describes the methods used by the **AcuantMobileSDKControllerCapturingDelegate** protocol.
 
-###didCaptureCropImage method###
+### didCaptureCropImage method###
 
 Use the **didCaptureCropImage** method to configure image cropping.
  
@@ -957,16 +957,16 @@ Use the following values to configure card processing for the **AcuantCardTypeDr
 			withDelegate:self
 			withOptions:options];
 		}
-###Parameters
+### Parameters
 
-####region
+#### region
 Integer parameter for the Region ID.   **Values**: United States – 0 | Australia – 4 | Asia – 5 | 
 Canada – 1 | America – 2 | Europe – 3 | Africa – 7 | General Documents – 6
 
-####autoDetectState
+#### autoDetectState
 Boolean value that indicates whether to auto detect the state of the ID.  **Values:** True | False (SDK won't auto detect the state of the ID and will use the value of ProcState integer)
 
-####stateID
+#### stateID
 Integer value of the state to which the ID belongs
 
 	- If **AutoDetectState** is True, then the SDK automatically detects the state of the ID and **stateID** value is ignored.
@@ -975,36 +975,36 @@ Integer value of the state to which the ID belongs
 	**Note** For a complete list of the different countries supported by the SDK and their different State integer values, see the ScanW document: <http://www.id-reader.com/ftp/applications/sdk/docs/ScanW.pdf>
 
 
-####faceDetection
+#### faceDetection
 Boolean value that indicates whether a face image is returned. **Values:** True | False
 
 
-####signatureDetection
+#### signatureDetection
 Boolean value that indicates whether a signature image is returned. **Values:** True | False
 
 
-####reformatImage
+#### reformatImage
 Boolean value  that indicates whether a formatted image is returned. **Values:** True | False (ignores value of **ReformatImageColor** and **ReformatImageDpi**)
 
 
-####reformatImageColor
+#### reformatImageColor
 Integer value that specifies the color value to reformat the image. **Values:** Image same color – 0 | Black and White – 1 | Gray scale 256 – 2 | Color 256 – 3 | True color – 4 | Enhanced Image – 5
 
 
-####DPI
+#### DPI
 Integer value that indicates the DPI value to reformat the image. **Values:** Range is 150 - 600. The size of the image is dependent on the DPI value. Use a lower value (150) for a smaller image.
 
 
-####cropImage
+#### cropImage
 Boolean value that indicates whether to crop the RAW image. **Values:** True | False 
 
 	**Note:** MobileSDK crops the image; therefore, leave this flag set to **False**.
 
 
-####logtransaction
+#### logtransaction
  Boolean value that indicates whether to save the transaction response on the Acuant cloud for future retrieval if logging is enabled on the license key. **Values:** True | False 
 
-####imageSettings
+#### imageSettings
 The default value for **imageSettings** is -1. Do not adjust this value unless instructed by Acuant Technical Support.
 
 ### Card processing for Medical Insurance Cards
@@ -1039,21 +1039,21 @@ Use the following values to configure card processing for **AcuantCardTypeMedica
 		withOptions:options];
 	}
 
-###Parameters
+### Parameters
 
-####reformatImage
+#### reformatImage
 Boolean value  that indicates whether a formatted image is returned. **Values:** True | False (ignores value of **ReformatImageColor** and **ReformatImageDpi**)
 
 
-####reformatImageColor
+#### reformatImageColor
 Integer value that specifies the color value to reformat the image. **Values:** Image same color – 0 | Black and White – 1 | Gray scale 256 – 2 | Color 256 – 3 | True color – 4 | Enhanced Image – 5
 
 
-####DPI
+#### DPI
 Integer value that indicates the DPI value to reformat the image. **Values:** Range is 150 - 600. The size of the image is dependent on the DPI value. Use a lower value (150) for a smaller image.
 
 
-####cropImage
+#### cropImage
 Boolean value that indicates whether to crop the RAW image. **Values:** True | False 
 
 	**Note:** MobileSDK crops the image; therefore, leave this flag set to **False**.
@@ -1089,28 +1089,28 @@ Use the following values to configure card processing for **AcuantCardTypePasspo
 			andStringData:nil withDelegate:self withOptions:options];
 		}
 
-###Parameters
+### Parameters
 
-####faceDetection
+#### faceDetection
 Boolean value that specifies whether to return a face image. **Values**: True | False
 
-####signatureDetection
+#### signatureDetection
 Boolean value that specifies whether to return a  signature image. **Values**: True | False
 
 
-####reformatImage
+#### reformatImage
 Boolean value  that indicates whether a formatted image is returned. **Values:** True | False (ignores value of **ReformatImageColor** and **ReformatImageDpi**)
 
 
-####reformatImageColor
+#### reformatImageColor
 Integer value that specifies the color value to reformat the image. **Values:** Image same color – 0 | Black and White – 1 | Gray scale 256 – 2 | Color 256 – 3 | True color – 4 | Enhanced Image – 5
 
 
-####DPI
+#### DPI
  Integer value that indicates the DPI value to reformat the image. **Values:** Range is 150 - 600. The size of the image is dependent on the DPI value. Use a lower value (150) for a smaller image.
 
 
-####cropImage
+#### cropImage
 Boolean value that indicates whether to crop the RAW image. **Values:** True | False 
 **Note:** MobileSDK crops the image; therefore, leave this flag set to **False**.
 
@@ -1466,7 +1466,7 @@ Use the following code to enable location tracking if you need to detect the loc
 
 		NSLocationAlwaysUsageDescription
 
-##Location details
+## Location details
 
 The following methods return location details:
 
@@ -1505,7 +1505,7 @@ The following fields return AssureID authentication results:
 **Note** The value of **AuthenticationResultSummary** will be empty for any result other than Attention (Passed, Failed, Unknown, or Skipped).
 
 
-#	Facial Recognition Match (FRM)
+# Facial Recognition Match (FRM)
 
 Acuant Facial Recognition Match (FRM) is a person authentication solution for mobile devices based on biometric facial recognition that reduces fraud by matching the facial biometrics to the face image on a driver’s license or passport. It is secure, convenient, and easy to integrate, and performs real time checks and processing within seconds.
 
@@ -1591,30 +1591,30 @@ This class contains the following **utility** method, which can be called to pre
 		inRect:(CGRect)rect;
 
 
-###Parameters
+### Parameters
 
-####(id<AcuantFacialCaptureDelegate>)delegate
+#### (id<AcuantFacialCaptureDelegate>)delegate
 Delegate where the control is to be returned
 
-####(AcuantMobileSDKController)sdkController
+#### (AcuantMobileSDKController)sdkController
 The SDK controller
 
-####(UIViewController)parentVC
+#### (UIViewController)parentVC
 Parent view controller that presents the camera interface
 
-####(BOOL)cancelVisible
+#### (BOOL)cancelVisible
 Indicates whether to show **Cancel** button
 
-####(CGRect) cancelRect
+#### (CGRect) cancelRect
 Indicates location of **Cancel** button
 
-####(NSString)watermarkText
+#### (NSString)watermarkText
 Brand watermark text
 
-####(NSAttributedString)message
+#### (NSAttributedString)message
 Instruction message (for example, “Blink Slowly”)
 
-####(CGRect)rect
+#### (CGRect)rect
 Frame in which instruction to be shown within the camera interface
 
 
@@ -1671,91 +1671,91 @@ The facial match function call can be made the same way as the other card proces
 
 
 
-##AcuantFacialData property
+## AcuantFacialData property
 The **AcuantFacialData** property has the following parameters:
 
-####isMatch	
+#### isMatch	
 Indicates whether both images matched
 
     @property (nonatomic, assign) BOOL  isMatch ; // If both images matched
 
-####isFacialEnabled
+#### isFacialEnabled
 Indicates whether the facial feature is enabled
 
 	@property (nonatomic, assign) BOOL  isFacialEnabled;// If facial feature is enabled
-####faceLivelinessDetection
+#### faceLivelinessDetection
 Indicates whether a live face was detected
 
 
     @property (nonatomic, assign) BOOL  faceLivelinessDetection; // If a live face was detected
 
-####transactionId
+#### transactionId
 String that specifies the facial match transaction ID
 
 
     @property (nonatomic, strong) NSString  *transactionId; // Facial match transaction id
 
-####errorMessage
+#### errorMessage
 String that contains any service error description
 
 **Note**  If the transaction was processed successfully then this field will be null.  	
 
     @property (nonatomic, strong) NSString  *errorMessage; // Any service error description. If the transaction has gone through successfully then this field will be null.
 
-####facialMatchConfidenceRating
+#### facialMatchConfidenceRating
 Integer that specifies the confidence level of the match as a value from 1 - 100	
 
 # Error Types
 The following errors may be generated:
 
-####AcuantErrorCouldNotReachServer = 0
+#### AcuantErrorCouldNotReachServer = 0
 Check internet connection
 
-####AcuantErrorUnableToAuthenticate = 1 
+#### AcuantErrorUnableToAuthenticate = 1 
 KeyLicense are incorrect
 
-####AcuantErrorUnableToProcess = 2 
+#### AcuantErrorUnableToProcess = 2 
 Image received by the server was unreadable, take a new one
 
-####AcuantErrorInternalServerError = 3 
+#### AcuantErrorInternalServerError = 3 
 There was an error in our server, try again later
 
-####AcuantErrorUnknown = 4 
+#### AcuantErrorUnknown = 4 
 There was an error but we were unable to determine the reason, try again later
 
-####AcuantErrorTimedOut = 5 
+#### AcuantErrorTimedOut = 5 
 Request timed out, maybe because Internet connection is too slow
 
-####AcuantErrorAutoDetectState = 6
+#### AcuantErrorAutoDetectState = 6
 Error when try to detect the state
 
-####AcuantErrorWebResponse = 7
+#### AcuantErrorWebResponse = 7
 The JSON was received by the server contained an error
 
-####AcuantErrorUnableToCrop = 8
+#### AcuantErrorUnableToCrop = 8
 The received image can't be cropped
 
-####AcuantErrorInvalidLicenseKey = 9
+#### AcuantErrorInvalidLicenseKey = 9
 Invalid license key
 
-####AcuantErrorInactiveLicenseKey = 10 
+#### AcuantErrorInactiveLicenseKey = 10 
 Inactive license key
 
-####AcuantErrorAccountDisabled = 11
+#### AcuantErrorAccountDisabled = 11
 Account disabled
 
-####AcuantErrorOnActiveLicenseKey = 12
+#### AcuantErrorOnActiveLicenseKey = 12
 There was an error on activation key
 
-####AcuantErrorValidatingLicensekey = 13
+#### AcuantErrorValidatingLicensekey = 13
 The validation is still in process
 
-####AcuantErrorCameraUnauthorized = 14
+#### AcuantErrorCameraUnauthorized = 14
 The privacy settings preventing camera access
 
-####AcuantErrorOpenCamera = 15
+#### AcuantErrorOpenCamera = 15
 An error occurred when the camera was opened
 
-####AcuantErrorIncorrectDocumentScanned = 16
+#### AcuantErrorIncorrectDocumentScanned = 16
 An error occurred when an incorrect document type is scanned
 
