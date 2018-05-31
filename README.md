@@ -122,10 +122,6 @@ If the following error(s) occurs when publishing/exporting the app, then in the 
 
 2.  Run `pod install` to add the AcuantMobileSDK.
 
-Check the below video for integration using COCOAPOD :
-
-[![Check the video tutorial](document_images/cocoapod_walkthrough.png)](https://youtu.be/oCOJlkfov0U)
-
 #### Add imports in the Objective-C bridging file *(optional)*:
 
 If this is a Swift project, then add the following imports to the Objective-C bridging file.
