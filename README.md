@@ -96,36 +96,6 @@ After cloning the repository, run the following command to make sure all files a
 
 
 
-## Common Build Error
-
-<details>	
-
-If git-lfs is not set up , then GitHub doesn't download large files. Therefore, if the following build error appears while building the iOS app, that means some of the files are missing. 
-
-	ld: warning: ignoring file ../com.acuant.plugin.AcuantMobileSDK/AcuantMobileSDK.framework/AcuantMobileSDK, file was built for unsupported file format ( 0x76 0x65 0x72 0x73 0x69 0x6F 0x6E 0x20 0x68 0x74 0x74 0x70 0x73 0x3A 0x2F 0x2F ) which is not the architecture being linked (armv7): ../com.acuant.plugin.AcuantMobileSDK/AcuantMobileSDK.framework/AcuantMobileSDK
-	Undefined symbols for architecture armv7:
-
-	"_OBJC_CLASS_$_AcuantCardProcessRequestOptions", referenced from:
-
-		objc-class-ref in AcuantMobileSDK.o
-
-	"_OBJC_CLASS_$_AcuantMobileSDKController", referenced from:
-
-		objc-class-ref in AcuantMobileSDK.o
-	ld: symbol(s) not found for architecture armv7
-	clang: error: linker command failed with exit code 1 (use -v to see invocation)
-	
-If the following error(s) occurs when publishing/exporting the app, then in the XCode build setting the architectures are not set correctly. You must either set valid CPU architectures or use the "lipo" command-line tool to remove the unsupported architecture library.
-
-![](document_images/unsupported_architecture.png)
-
-![](document_images/unsupported_architecture_1.png)
-
-	lipo -remove i386 <Path to the file> -o <Output file path>
-	lipo -remove x86_64 <Path to the file> -o <Output file path>
-
-</details>
-
 ## Manual Installation
 
 <details>	
@@ -230,6 +200,36 @@ If this is a Swift project, then add the following imports to the Objective-C br
 
 </details>
 
+## Common Build Error
+
+<details>	
+
+If git-lfs is not set up , then GitHub doesn't download large files. Therefore, if the following build error appears while building the iOS app, that means some of the files are missing. 
+
+	ld: warning: ignoring file ../com.acuant.plugin.AcuantMobileSDK/AcuantMobileSDK.framework/AcuantMobileSDK, file was built for unsupported file format ( 0x76 0x65 0x72 0x73 0x69 0x6F 0x6E 0x20 0x68 0x74 0x74 0x70 0x73 0x3A 0x2F 0x2F ) which is not the architecture being linked (armv7): ../com.acuant.plugin.AcuantMobileSDK/AcuantMobileSDK.framework/AcuantMobileSDK
+	Undefined symbols for architecture armv7:
+
+	"_OBJC_CLASS_$_AcuantCardProcessRequestOptions", referenced from:
+
+		objc-class-ref in AcuantMobileSDK.o
+
+	"_OBJC_CLASS_$_AcuantMobileSDKController", referenced from:
+
+		objc-class-ref in AcuantMobileSDK.o
+	ld: symbol(s) not found for architecture armv7
+	clang: error: linker command failed with exit code 1 (use -v to see invocation)
+	
+If the following error(s) occurs when publishing/exporting the app, then in the XCode build setting the architectures are not set correctly. You must either set valid CPU architectures or use the "lipo" command-line tool to remove the unsupported architecture library.
+
+![](document_images/unsupported_architecture.png)
+
+![](document_images/unsupported_architecture_1.png)
+
+	lipo -remove i386 <Path to the file> -o <Output file path>
+	lipo -remove x86_64 <Path to the file> -o <Output file path>
+
+</details>
+
 ## Integration with Swift
 
 Before you integrate this SDK with a Swift project, you must first create an Objective-C bridging header to expose those files to Swift. After you add an Objective-C file, the Xcode will prompt you to create the header file. 
@@ -243,8 +243,10 @@ Add the following import header to your **appDelegate** header file:
 	    #import <AcuantMobileSDK/AcuantMobileSDKController.h>	
 
 
-### Objective-C Sample Application
+## Sample Applications
 
+<details>
+<summary>Objective-C Sample Application</summary>
 The Objective-C Sample application **AcuantiOSMobileSampleSDK.xcodeproj** is located in Sample-Objective-C-App:
 
 ![](document_images/Objective-C-Sample-App-Location.png)
@@ -252,9 +254,10 @@ The Objective-C Sample application **AcuantiOSMobileSampleSDK.xcodeproj** is loc
 **Note** You need a license key from Acuant to run the sample application. Contact Acuant Technical Support to obtain a license key.
 
 ![](document_images/Setting-License-key-Objective-C.png)
+</details>
 
-### Swift Sample Application
-
+<details>
+<summary>Swift Sample Application</summary>
 The Swift Sample application is located in Sample-Swift-App:
 
 ![](document_images/Swift-Sample-App-Location.png)
@@ -262,9 +265,10 @@ The Swift Sample application is located in Sample-Swift-App:
 **Note** You need a license key from Acuant to run the sample application. Contact Acuant Technical Support to obtain a license key.
 
 ![](document_images/Swift-Set-LicenseKey.png)
+</details>
 
-### AssureID Connect Objective-C Sample Application 
-
+<details>
+<summary>AssureID Connect Objective-C Sample Application</summary>
 The AssureID Connect Objective-C Sample application is located in:
 
 ![](document_images/Objective-C-Connect-Location.png)
@@ -272,9 +276,11 @@ The AssureID Connect Objective-C Sample application is located in:
 **Note** You need a license key from Acuant to run the sample application. Contact Acuant Technical Support to obtain a license key.
 
 ![](document_images/Objective-C-Connect-Credentials.png)
+</details>
 
-### AssureID Connect Swift Sample Application
 
+<details>
+<summary>AssureID Connect Swift Sample Application</summary>
 The AssureID Connect Swift Sample application is located in:
 
 ![](document_images/Swift-Connect-Location.png)
@@ -282,6 +288,7 @@ The AssureID Connect Swift Sample application is located in:
 **Note:** You need the appropriate AssureID Connect credentials to run the sample application. Contact Acuant to obtain the credentials.
 
 ![](document_images/Swift-Connect-Credentials.png)
+</details>
 
 ## Using the AcuFill FRM Sample Application for Data Capture
 
