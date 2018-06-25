@@ -40,6 +40,34 @@ Acuant Inc.
 
 Los Angeles, CA 90045
 
+- [Introduction](#introduction)
+- [Revision History](#revision-history)
+- [Operating system and device requirements](#operating-system-and-device-requirements)
+- [Common Build Error](#common-build-error)
+- [Installing the SDK with CocoaPods](#installing-the-sdk-with-cocoapods)
+- [Integration](#integration)
+	- [Integration with Swift](#integration-with-swift)
+	- [Integration with Objective-C](#integration-with-objective-c)
+- [Sample Applications](#sample-applications)
+	- [Objective-C Sample Application](#objective-c-sample-application)
+	- [Swift Sample Application](#swift-sample-application)
+	- [AssureID Connect Objective-C Sample Application](#assureid-connect-objective-c-sample-application)
+	- [AssureID Connect Swift Sample Application](#assureid-connect-swift-sample-application)
+- [Card Capture](#card-capture)
+	- [Configure the SDK for the card capture interface:](#configure-the-sdk-for-the-card-capture-interface)
+	- [Card capture interface methods](#card-capture-interface-methods)
+	- [Specifying the card size](#specifying-the-card-size)
+	- [Customize the display and message on the camera screen:](#customize-the-display-and-message-on-the-camera-screen)
+	- [Using the AcuantMobileSDKControllerCapturingDelegate protocol](#using-the-acuantmobilesdkcontrollercapturingdelegate-protocol)
+- [Card Processing](#card-processing)
+	- [SDK Configuration](#sdk-configuration)
+	- [Configure the SDK for the card capture interface.](#configure-the-sdk-for-the-card-capture-interface)
+	- [Card Processing Methods](#card-processing-methods)
+	- [Processing Driver's Licence, Medical Insurance, Passport](#using-the-acuantmobilesdkcontrollerprocessingdelegate-protocol)
+- [AssureID Authentication](#assureid-authentication)
+- [Tracking Capture Device Location](#tracking-capture-device-location)
+- [Facial Recognition Match (FRM)](#facial-recognition-match-frm)
+- [Error Types](#error-types)
 
 ==================
 
@@ -154,7 +182,7 @@ The **ImageMetrics** parameter specifies the sharpness and glare threshold of a 
 5.  Open the Info.plist file (which contains the version number).
 
 
-##Operating system and device requirements
+## Operating system and device requirements
 The Acuant iOS Mobile SDK API supports the following operating system
 and devices:
 
@@ -165,18 +193,7 @@ and devices:
 **Note**  The card image must be taken in acceptable light conditions to avoid glare and overhead lights. The card should preferably be fitted within the brackets on the camera screen to allow the picture to be taken at maximum resolution.
 
 <a name="Installing the SDK"></a>
-## Installing the SDK with CocoaPods
 
-This section describes how to install the Acuant iOS Mobile SDK using CocoaPods.
-
-**Note** GitHub has recently changed the versioning for large files. To be able to download large files while cloning from GitHub or CocoaPods repositories please make sure git-lfs is installed in the build machine.
-More information for git-lfs is available at <https://git-lfs.github.com/>. Clone and update our SDK repository
-*only* after the git-lfs is installed.
-
-After cloning the repository, run the following command to make sure all files are pulled:
-
-	git lfs pull
-	
 ## Common Build Error
 
 If git-lfs is not set up , then GitHub doesn't download large files. Therefore, if the following build error appears while building the iOS app, that means some of the files are missing. 
@@ -202,6 +219,18 @@ If the following error(s) occurs when publishing/exporting the app, then in the 
 
 	lipo -remove i386 <Path to the file> -o <Output file path>
 	lipo -remove x86_64 <Path to the file> -o <Output file path>
+
+## Installing the SDK with CocoaPods
+
+This section describes how to install the Acuant iOS Mobile SDK using CocoaPods.
+
+**Note** GitHub has recently changed the versioning for large files. To be able to download large files while cloning from GitHub or CocoaPods repositories please make sure git-lfs is installed in the build machine.
+More information for git-lfs is available at <https://git-lfs.github.com/>. Clone and update our SDK repository
+*only* after the git-lfs is installed.
+
+After cloning the repository, run the following command to make sure all files are pulled:
+
+	git lfs pull
 
 
 #### Create a Podfile:
@@ -308,6 +337,7 @@ If you do not use CocoaPods, then you need to add the AcuantMobileSDK.embeddedfr
 
 	    Add on “GCC_PREPROCESSOR_DEFINITIONS” = CVLIB_IMG_NOCODEC
 
+# Integration
 
 ## Integration with Swift
 
@@ -321,8 +351,9 @@ Add the following import header to your **appDelegate** header file:
 
 	    #import <AcuantMobileSDK/AcuantMobileSDKController.h>	
 
+# Sample Applications
 
-### Objective-C Sample Application
+## Objective-C Sample Application
 
 The Objective-C Sample application **AcuantiOSMobileSampleSDK.xcodeproj** is located in Sample-Objective-C-App:
 
@@ -332,7 +363,7 @@ The Objective-C Sample application **AcuantiOSMobileSampleSDK.xcodeproj** is loc
 
 ![](document_images/Setting-License-key-Objective-C.png)
 
-### Swift Sample Application
+## Swift Sample Application
 
 The Swift Sample application is located in Sample-Swift-App:
 
@@ -342,7 +373,7 @@ The Swift Sample application is located in Sample-Swift-App:
 
 ![](document_images/Swift-Set-LicenseKey.png)
 
-### AssureID Connect Objective-C Sample Application 
+## AssureID Connect Objective-C Sample Application 
 
 The AssureID Connect Objective-C Sample application is located in:
 
@@ -352,7 +383,7 @@ The AssureID Connect Objective-C Sample application is located in:
 
 ![](document_images/Objective-C-Connect-Credentials.png)
 
-### AssureID Connect Swift Sample Application
+## AssureID Connect Swift Sample Application
 
 The AssureID Connect Swift Sample application is located in:
 
@@ -1760,7 +1791,6 @@ The facial match function call can be made the same way as the other card proces
 		- (void)didFinishValidatingImageWithResult:(AcuantCardResult*)cardResult{
     	AcuantFacialData* result =(AcuantFacialData*)cardResult;
         }
-
 
 
 ##AcuantFacialData property
